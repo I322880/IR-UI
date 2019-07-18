@@ -8,7 +8,7 @@
 					<headerToolbar>
 						<Toolbar height="3rem" style="Clear">
 							<Title text="Segmentation: Analysis" />
-							<Button text="Display Detailed Result" press="showdetails"/>
+							<Button text="Display fDetailed Result" press="showdetails"/>
 						</Toolbar>
 					</headerToolbar>
 					<content>
