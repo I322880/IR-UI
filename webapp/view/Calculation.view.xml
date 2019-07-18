@@ -1,0 +1,172 @@
+<mvc:View id="view2" controllerName="Intelligent-Return-Web.Intelligent-Return-Web.controller.Calculation" xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data">
+	<Page title="Calculation View" showNavButton="true" navButtonPress="onNavBack">
+		<Panel id="panel1" headerText="KPIs for Segment" expandable="true" expanded="true" width="100%" class="sapUiTinyMargin">
+			<f:Form id="FormDisplay354wideDual" editable="false">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+						emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer title="Orders">
+						<f:formElements>
+							<f:FormElement label="Number of Order Placed">
+								<f:fields>
+									<Text text="{/orders}" id="nameText"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Number of Returns">
+								<f:fields>
+									<Text text="{/returns} {}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer title="Logistic Cost Breakup">
+						<f:formElements>
+							<f:FormElement label="Shipping Cost">
+								<f:fields>
+									<Text text="4.00%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Inventory Cost">
+								<f:fields>
+									<Text text="3.00%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Payment Gateway">
+								<f:fields>
+									<Text text="0.5%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Quality Check">
+								<f:fields>
+									<Text text="1.50%"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer title="Financial KPI">
+						<f:formElements>
+							<f:FormElement label="Gross Sales Value">
+								<f:fields>
+									<Text text="{/grossvalue}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Total Logistic Cost">
+								<f:fields>
+									<Text text="{/logistic}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Profit">
+								<f:fields>
+									<Text text="{/profit}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Profit%">
+								<f:fields>
+									<Text text="{/profitper}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer title="Apply Return Strategy">
+						<f:FormElement>
+							<f:fields>
+								<RadioButton id="RB21" text="Aggressive" select="onaggressive"/>
+								<Input id="returncharge1" type="Text" placeholder="Enter Logistic cost% ..."/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement>
+							<f:fields>
+								<RadioButton id="RB2" text="Moderate" select="onmoderate"/>
+								<Input id="returncharge2" type="Text" placeholder="Enter Logistic cost% ..."/>
+							</f:fields>
+						</f:FormElement>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</Panel>
+		<Panel id="panel2" expandable="true" expanded="false" headerText="What-If" width="100%" class="sapUiTinyMargin">
+			<f:Form id="FormDisplay" editable="false">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+						emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer title="Parameters">
+						<f:formElements>
+							<f:FormElement label="Return down">
+								<f:fields>
+									<Input value="10" id="name" description="%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Extra cost levied on Customer ">
+								<f:fields>
+									<Input value="50" id="cost" description="% of Shipping cost"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer title="Change in KPI after applying Return Strategy">
+						<f:formElements>
+							<f:FormElement label="Number of Order Placed">
+								<f:fields>
+									<Text text="{Url}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Number Of Return">
+								<f:fields>
+									<Text text="{Twitter}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Total Gross Sale">
+								<f:fields>
+									<Text text="{Twitter}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Logistic Cost">
+								<f:fields>
+									<Text text="{Twitter}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Profit">
+								<f:fields>
+									<Text text="{Twitter}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Profit%">
+								<f:fields>
+									<Text text="{Twitter}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<VBox class="sapUiTinyMargin">
+				<viz:VizFrame id="oVizFrame" busy="false" busyIndicatorDelay="1000" visible="true" uiConfig="{ 'applicationSet': 'fiori' }"
+					vizType="dual_bar" legendVisible="true"
+					vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Customer Segmentation', visible : true}}">
+					<viz:dataset>
+						<viz.data:FlattenedDataset data="{/book}">
+							<viz.data:dimensions>
+								<viz.data:DimensionDefinition name="Item Category" value="{Item Category}"/>
+							</viz.data:dimensions>
+							<viz.data:measures>
+								<viz.data:MeasureDefinition group="1" name="Revenue" value="{Revenue}"/>
+								<viz.data:MeasureDefinition group="1" name="Units Available" value="{Units Available}"/>
+							</viz.data:measures>
+						</viz.data:FlattenedDataset>
+					</viz:dataset>
+					<viz:feeds>
+						<viz.feeds:FeedItem id="value1" uid="valueAxis" type="Measure" values="Revenue"/>
+						<viz.feeds:FeedItem id="value2" uid="valueAxis2" type="Measure" values="Units Available"/>
+						<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Item Category"/>
+					</viz:feeds>
+				</viz:VizFrame>
+			</VBox>
+		</Panel>
+	</Page>
+</mvc:View>

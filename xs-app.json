@@ -1,0 +1,22 @@
+{
+	"welcomeFile": "/index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutEndpoint": "/do/logout"
+	},
+	"routes": [{
+		"source": "^/IR_Test/(.*)$",
+		"target": "$1",
+		"authenticationType": "none",
+		"destination": "IR_Test",
+		"csrfProtection": false
+	}, {
+		"source": "^(.*)$",
+		"target": "$1",
+		"service": "html5-apps-repo-rt",
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "^/(.*)",
+		"localDir": "webapp"
+	}]
+}

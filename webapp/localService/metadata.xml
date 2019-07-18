@@ -1,0 +1,34 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="default">
+			<EntityType Name="RetailerType">
+				<Key>
+					<PropertyRef Name="CustomerID"/>
+				</Key>
+				<Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="40"/>
+				<Property Name="OrderID" Type="Edm.String" Nullable="false" MaxLength="40"/>
+				<Property Name="ProductID" Type="Edm.String" MaxLength="40"/>
+				<Property Name="ReturnFlag" Type="Edm.Int32"/>
+				<Property Name="ProductPrice" Type="Edm.Decimal" Precision="34"/>
+				<Property Name="LogisticCost" Type="Edm.Decimal" Precision="34"/>
+				<Property Name="OrderDate" Type="Edm.DateTime"/>
+				<Property Name="ReturnDate" Type="Edm.DateTime"/>
+				<Property Name="OrderValue" Type="Edm.Decimal" Precision="10" Scale="2"/>
+				<Property Name="LoyaltyScore" Type="Edm.Int32"/>
+			</EntityType>
+			<EntityType Name="SegmentType">
+				<Key>
+					<PropertyRef Name="SegmentID"/>
+				</Key>
+				<Property Name="SegmentID" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="NumberOfCustomer" Type="Edm.Int64" Nullable="false"/>
+			</EntityType>
+			<EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="Retailer" EntityType="default.RetailerType"/>
+				<EntitySet Name="Segment" EntityType="default.SegmentType"/>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
