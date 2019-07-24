@@ -1,0 +1,32 @@
+{
+	"SupplierSegment": [{
+		"SegmentID": "01",
+		"NumberOfSupplier": 520
+	}, {
+		"SegmentID": "02",
+		"NumberOfSupplier": 120
+	}, {
+		"SegmentID": "03",
+		"NumberOfSupplier": 80
+	}, {
+		"SegmentID": "04",
+		"NumberOfSupplier": 120
+	}],
+	"SupplierOrderReturn": [{
+		"SegmentID": "01",
+		"Number of Order": 520,
+		"Number of Return": 400
+	}, {
+		"SegmentID": "02",
+		"Number of Order": 120,
+		"Number of Return": 100
+	}, {
+		"SegmentID": "03",
+		"Number of Order": 320,
+		"Number of Return": 80
+	}, {
+		"SegmentID": "04",
+		"Number of Order": 70,
+		"Number of Return": 40
+	}]
+}

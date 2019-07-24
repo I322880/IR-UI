@@ -1,0 +1,57 @@
+<mvc:View id="supplier" controllerName="Intelligent-Return-Web.Intelligent-Return-Web.controller.Supplier" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:l="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" displayBlock="true">
+	<l:VerticalLayout id="containerLayout" width="100%">
+		<HBox>
+			<viz:VizFrame width="37rem" id="DueDateGridFrame" selectData="myOnClickHandler" vizType="info/pie" uiConfig="{applicationSet:'fiori'}"
+				vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Supplier Segmentation', visible : true}}">
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/SupplierSegment}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="SegmentID" value="{SegmentID}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition value="{NumberOfSupplier}" name="NumberOfSupplier"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="size" type="Measure" values="NumberOfSupplier"/>
+					<viz.feeds:FeedItem uid="color" type="Dimension" values="SegmentID"/>
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:Popover id="vizPopover"></viz:Popover>
+			<viz:Popover id="idPopOver" showHeader="false"></viz:Popover>
+			<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType='stacked_column'
+				vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Order/Returns', visible : true}}">
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/SupplierOrderReturn}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Segment" value="{SegmentID}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Number of Order" value="{Number of Order}"/>
+							<viz.data:MeasureDefinition name="Number of Return" value="{Number of Return}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number of Order,Number of Return"/>
+					<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Segment"/>
+				</viz:feeds>
+			</viz:VizFrame>
+		</HBox>
+		<HBox>
+			<Panel id="panel2" width="auto" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar height="3rem" style="Clear">
+						<Title text="Segmentation Summary: Detailed"/>
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<mvc:XMLView viewName="Intelligent-Return-Web.Intelligent-Return-Web.view.Summary"/>
+				</content>
+			</Panel>
+		</HBox>
+	</l:VerticalLayout>
+</mvc:View>

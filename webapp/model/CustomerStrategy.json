@@ -1,0 +1,33 @@
+{
+	"Aggressive": [{
+		"SId": "ST-1000",
+		"Name": "Stop Free Shipping"
+	}, {
+		"SId": "ST-1001",
+		"Name": "Charge 50% of Shipping Cost"
+	}, {
+		"SId": "ST-1004",
+		"Name": "Make Customer Account Dormant"
+	}],
+	"Conservative": [{
+		"SId": "ST-1010",
+		"Name": "Customer Ships Returned Items"
+	}, {
+		"SId": "ST-1011",
+		"Name": "Offer Exchange Instead of Refund"
+	}, {
+		"SId": "ST-1012",
+		"Name": "Provide Credit Points Instead of Cash Return"
+	}],
+	"Moderate": [{
+		"SId": "ST-1110",
+		"Name": "Cap Discount"
+	}, {
+		"SId": "ST-1111",
+		"Name": "Charge Partial Shipping"
+	}, {
+		"SId": "ST-1112",
+		"Name": "Customer to Return In-Store"
+	}]
+
+}

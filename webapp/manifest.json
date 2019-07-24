@@ -114,7 +114,11 @@
 			}, {
 				"pattern": "",
 				"name": "overview",
-				"target": "Analysis"
+				"target": "Landing"
+			}, {
+				"name": "segmentation",
+				"pattern": "segmentation",
+				"target": ["Segment"]
 			}],
 			"targets": {
 				"Calculation": {
@@ -124,7 +128,14 @@
 					"viewId": "view2",
 					"viewName": "Calculation"
 				},
-				"Analysis": {
+				"Landing": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "landing",
+					"viewName": "LandingPage"
+				},
+				"Segment": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,

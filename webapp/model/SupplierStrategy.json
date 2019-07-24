@@ -1,0 +1,15 @@
+{
+	"Aggressive": [{
+		"SId": "ST-1000",
+		"Name": "Make Supplier's Account Dormant"
+	}],
+	"Conservative": [{
+		"SId": "ST-1010",
+		"Name": "Supplier Offsets Returns Cost With Direct Discount"
+	}],
+	"Moderate": [{
+		"SId": "ST-1110",
+		"Name": "Supplier's Products Not Promoted"
+	}]
+
+}

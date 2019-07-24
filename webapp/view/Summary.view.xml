@@ -15,7 +15,7 @@
 				<Text text="Number of Returns"/>
 			</Column>
 			<Column width="10em" hAlign="Center">
-				<Text text="Total Revenue"/>
+				<Text text="Customer Value"/>
 			</Column>
 			<Column width="12em" hAlign="Center">
 				<Text text="MeanCustomerValue"/>

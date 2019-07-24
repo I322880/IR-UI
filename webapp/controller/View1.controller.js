@@ -45,7 +45,7 @@ sap.ui.define([
 								returns: value
 							}, true);
 						}
-						_oRouter.navTo("detail");
+						_oRouter.navTo("detail", null, true);
 					}
 				}],
 				'customDataControl': function (data) {
@@ -56,6 +56,7 @@ sap.ui.define([
 					var min_mcv = -99999;
 					var selected = new sap.ui.model.json.JSONModel();
 					selected.segmentid = segmentid;
+					selected.segmentation ="cus";
 					sap.ui.getCore().setModel(selected, "select");
 					// Read chosen segment details
 					for (var key in keys) {
@@ -168,6 +169,10 @@ sap.ui.define([
 			that.byId("panel1").setExpanded(false);
 			that.byId("panel2").setExpanded(true);
 
+		},
+		onNavBack: function (event) {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("overview");
 		}
 	});
 });
