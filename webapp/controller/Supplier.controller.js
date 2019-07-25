@@ -42,6 +42,13 @@ sap.ui.define([
 		},
 		_initializeView: function () {
 
+		},
+		status: function (MeanSupplierValue) {
+			if (MeanSupplierValue > 1) {
+				return $.sap.getModulePath("Intelligent-Return-Web.Intelligent-Return-Web", "/images/up.png"); // use your png image here 
+			} else if (MeanSupplierValue < 1) {
+				return $.sap.getModulePath("Intelligent-Return-Web.Intelligent-Return-Web", "/images/down.png");
+			}
 		}
 	});
 

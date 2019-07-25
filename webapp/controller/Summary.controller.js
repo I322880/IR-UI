@@ -20,6 +20,9 @@ sap.ui.define([
 			});*/
 			sap.ui.getCore().setModel(oJsonModel2);
 		},
+		onBeforeRendering: function () {
+			var summaryTable = this.getView().byId("SegmentDetailed");
+		},
 		onUpdatesegment: function (oController) {
 			//var value = sap.ui.getCore().byId("nameText2").getText();
 			var value = this.getView().byId("nameText2").getValue();
@@ -30,6 +33,15 @@ sap.ui.define([
 			xmlhttp.open("GET", jurl, true);
 			xmlhttp.setRequestHeader('Content-Type', 'application/json')
 			xmlhttp.send();
+		},
+
+		status: function (MeanCustomerValue) {
+			if (MeanCustomerValue > 0) {
+				return $.sap.getModulePath("Intelligent-Return-Web.Intelligent-Return-Web", "/images/up.png"); // use your png image here 
+			} else if (MeanCustomerValue < 0) {
+				return $.sap.getModulePath("Intelligent-Return-Web.Intelligent-Return-Web", "/images/down.png");
+			}
 		}
-	})
+
+	});
 });

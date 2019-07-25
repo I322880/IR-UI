@@ -49,7 +49,50 @@
 					</Toolbar>
 				</headerToolbar>
 				<content>
-					<mvc:XMLView viewName="Intelligent-Return-Web.Intelligent-Return-Web.view.Summary"/>
+					<Table id="SegmentDetailed" inset="false" items="{ path: '/SupplierSegmentDetails', sorter: { path: 'SegmentID' } }">
+						<columns>
+							<Column width="8em">
+								<Text text="Segment ID"/>
+							</Column>
+							<Column width="8em" demandPopin="true">
+								<Text text="Number of Customers"/>
+							</Column>
+							<Column width="8em" demandPopin="true" hAlign="Center">
+								<Text text="Number of Orders"/>
+							</Column>
+							<Column width="8em" hAlign="Center">
+								<Text text="Number of Returns"/>
+							</Column>
+							<Column width="10em" hAlign="Center">
+								<Text text="Profit%"/>
+							</Column>
+							<Column width="9em" hAlign="Center">
+								<Text text="MeanOrderCount"/>
+							</Column>
+							<Column width="10em" hAlign="Center">
+								<Text text="MeanReturnCount"/>
+							</Column>
+							<Column width="12em" hAlign="Center">
+								<Text text="Supplier Value Index"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier text="{SegmentID}"/>
+									<Text text="{Number of Customer}"/>
+									<Text text="{Number of Order}"/>
+									<Text text="{Number of Return}"/>
+									<ObjectNumber number="{ parts:[{path:'Profit'}], type: 'sap.ui.model.type.Float', formatOptions: { groupingSeparator: '.' } }"/>
+									<ObjectNumber
+										number="{ path:'MeanOrderCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+									<ObjectNumber
+										number="{ path:'MeanReturnCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+									<Image src="{path: 'MeanSupplierValue', formatter: '.status' }" width="18%"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
 				</content>
 			</Panel>
 		</HBox>

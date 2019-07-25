@@ -8,52 +8,52 @@
 				<m:VBox alignContent="Center">
 					<m:FlexBox backgroundDesign="Translucent" width="40rem" height="18rem" alignItems="Start" class="sapUiSmallMargin">
 						<m:items>
-							<suit:RadialMicroChart size="Responsive" percentage="23.5" valueColor="Critical" press="onClickRadial"></suit:RadialMicroChart>
+							<suit:RadialMicroChart alignContent ="Right" size="Responsive" percentage="23.5" valueColor="Critical" press="onClickRadial"></suit:RadialMicroChart>
 							<m:Label class="sapUiSmallMargin" textAlign="Right" text="Returns as a Percentage of Total Orders" design="Bold"></m:Label>
 						</m:items>
 					</m:FlexBox>
 				</m:VBox>
 				<m:VBox>
-				<m:GenericTile header="Total Revenue" frameType="TwoByOne" press="press" class="sapUiTinyMargin">
-					<m:tileContent>
-						<m:TileContent>
-							<m:Slider id="revenue" value="{/totalRevenue/value}" step="2" enableTickmarks="false" liveChange="onChangeSlider" width="100%" min="0.00"
-								max="50.00" class="sapUiMediumMarginBottom"/>
-						</m:TileContent>
-						<m:TileContent unit="EUR">
-							<m:NumericContent scale="M" id="textr" value="1.00" valueColor="Good"/>
-						</m:TileContent>
-					</m:tileContent>
-				</m:GenericTile>
-				<layout:Grid>
-					<layout:VerticalLayout>
-						<layout:layoutData>
-							<layout:GridData span="XL12 L12 M12 S12"/>
-						</layout:layoutData>
-						<m:GenericTile header="Revenue Lost due to Returns" subheader="" frameType="TwoByOne" press="press"
-							class="sapUiTinyMargin">
-							<m:tileContent>
-								<m:TileContent footer="" unit="EUR">
-									<m:NumericContent id="returncost" scale="K" value="1.96" valueColor="Error" indicator="Down"/>
-								</m:TileContent>
-							</m:tileContent>
-						</m:GenericTile>
-						<m:Text text="Logistic Cost Breakup(%)" class="sapUiSmallMargin"/>
-						<m:FlexBox width="20rem" height="13rem" alignItems="Center" class="sapUiSmallMargin">
-							<m:items>
-								<suit:InteractiveBarChart labelWidth="25%" displayedBars="5" selectionChanged="selectionChanged" press="press" class="SapUiTinyMargin">
-									<suit:bars>
-										<suit:InteractiveBarChartBar label="Inventory Cost" value="1.50" displayedValue="1.50%"/>
-										<suit:InteractiveBarChartBar label="Shipping Cost" value="5.50" displayedValue="5.50%"/>
-										<suit:InteractiveBarChartBar label="Warehouse Management Cost" value="3.00" displayedValue="3.00%"/>
-										<suit:InteractiveBarChartBar label="Quality Check Cost" value="3.00" displayedValue="3.00%"/>
-										<suit:InteractiveBarChartBar label="Payment Gateway Cost" value="0.50" displayedValue="3.00%"/>
-									</suit:bars>
-								</suit:InteractiveBarChart>
-							</m:items>
-						</m:FlexBox>
-					</layout:VerticalLayout>
-				</layout:Grid>
+					<layout:Grid>
+						<layout:VerticalLayout>
+							<layout:layoutData>
+								<layout:GridData span="XL12 L12 M12 S12"/>
+							</layout:layoutData>
+							<m:GenericTile header="Total Revenue" frameType="TwoByOne" press="press" class="sapUiTinyMargin">
+								<m:tileContent>
+									<m:TileContent>
+										<m:Slider id="revenue" value="{/totalRevenue/value}" step="2" enableTickmarks="false" liveChange="onChangeSlider" width="100%" min="0.00"
+											max="50.00" class="sapUiMediumMarginBottom"/>
+									</m:TileContent>
+									<m:TileContent unit="EUR">
+										<m:NumericContent scale="M" id="textr" value="1.00" valueColor="Good"/>
+									</m:TileContent>
+								</m:tileContent>
+							</m:GenericTile>
+							<m:GenericTile header="Revenue Lost due to Returns" subheader="" frameType="TwoByOne" press="press" class="sapUiTinyMargin">
+								<m:tileContent>
+									<m:TileContent footer="" unit="EUR">
+										<m:NumericContent id="returncost" scale="K" value="1.96" valueColor="Error" indicator="Down"/>
+									</m:TileContent>
+								</m:tileContent>
+							</m:GenericTile>
+							<m:Label design="Bold" text="Logistic Cost Breakup((% of Revenue)" class="sapUiSmallMargin"/>
+							<m:FlexBox width="20rem" height="13rem" alignItems="Center" class="sapUiTinyMargin">
+								<m:items>
+									<suit:InteractiveBarChart labelWidth="25%" displayedBars="5" selectionChanged="selectionChanged" press="press" class="SapUiTinyMargin">
+										<suit:bars>
+											<suit:InteractiveBarChartBar label="Transportation Spend" value="5.50" displayedValue="2.5 - 5.50%"/>
+											<suit:InteractiveBarChartBar label="Inventory Carrying Cost" value="1.50" displayedValue="1.50%"/>
+											<suit:InteractiveBarChartBar label="Additional Quality Management Cost" value="1.30" displayedValue="0.50 - 1.50%"/>
+											<suit:InteractiveBarChartBar label="Warehouse Management Cost" value="2.00" displayedValue="1.20 - 2.50%"/>
+											<suit:InteractiveBarChartBar label="Customer Service Cost" value="1.00" displayedValue="0.70%"/>
+											<suit:InteractiveBarChartBar label="Administration Cost" value="0.50" displayedValue="0.50 - 1.00%"/>
+										</suit:bars>
+									</suit:InteractiveBarChart>
+								</m:items>
+							</m:FlexBox>
+						</layout:VerticalLayout>
+					</layout:Grid>
 				</m:VBox>
 			</m:HBox>
 		</m:Page>

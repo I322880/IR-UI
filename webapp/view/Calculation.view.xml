@@ -47,7 +47,7 @@
 		<footer>
 			<OverflowToolbar>
 				<ToolbarSpacer/>
-				<Button type="Accept" text="Apply"/>
+				<Button type="Accept" text="Apply" press="onChoose"/>
 			</OverflowToolbar>
 		</footer>
 	</Page>

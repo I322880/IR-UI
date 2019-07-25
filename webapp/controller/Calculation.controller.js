@@ -1,14 +1,16 @@
 sap.ui.define([
+	'sap/m/MessageBox',
 	'jquery.sap.global',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel'
-], function (jQuery, Controller, JSONModel, ODataModel) {
+
+], function (MessageBox, jQuery, Controller, JSONModel, ODataModel, MessageToast) {
 	"use strict";
 
 	var BlockController = Controller.extend("Intelligent-Return-Web.Intelligent-Return-Web.controller.Calculation", {
-        onBeforeRendering: function() {
-        	var dummay =1;
-        },
+		onBeforeRendering: function () {
+			var dummay = 1;
+		},
 		onInit: function () {
 			var oSelect = sap.ui.getCore().getModel("select").segmentation;
 			var oMultibox;
@@ -149,6 +151,14 @@ sap.ui.define([
 			that.byId("mb1").setEnabled(false);
 			that.byId("mb1").clearSelection();
 			this._initializeChart();
+		},
+		onChoose: function (oEvent) {
+			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+			MessageBox.confirm(
+				"Apply Return Strategy? Data will be persisted", {
+					styleClass: bCompact ? "sapUiSizeCompact" : ""
+				}
+			);
 		}
 	});
 

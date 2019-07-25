@@ -1,5 +1,5 @@
 <mvc:View controllerName="Intelligent-Return-Web.Intelligent-Return-Web.controller.Summary" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" displayBlock="true">
+	xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" displayBlock="true">
 	<Table id="SegmentDetailed" inset="false" items="{ path: '/SegmentDetails', sorter: { path: 'SegmentID' } }">
 		<columns>
 			<Column width="8em">
@@ -20,11 +20,14 @@
 			<Column width="12em" hAlign="Center">
 				<Text text="MeanCustomerValue"/>
 			</Column>
-			<Column width="12em" hAlign="Center">
+			<Column width="9em" hAlign="Center">
 				<Text text="MeanOrderCount"/>
 			</Column>
-			<Column width="12em" hAlign="Center">
+			<Column width="10em" hAlign="Center">
 				<Text text="MeanReturnCount"/>
+			</Column>
+			<Column width="12em" hAlign="Center">
+				<Text text="Customer Value Index"/>
 			</Column>
 		</columns>
 		<items>
@@ -34,15 +37,15 @@
 					<Text text="{Number of Customer}"/>
 					<Text text="{Number of Order}"/>
 					<Text text="{Number of Return}"/>
+					<ObjectNumber unit="EUR" 
+						number="{ parts:[{path:'Customer Value'}], type: 'sap.ui.model.type.Currency', formatOptions: { groupingSeparator: '.' } }"/>
 					<ObjectNumber
-						number="{ parts:[{path:'Customer Value'}], emphasized: 'false', type: 'sap.ui.model.type.Currency', formatOptions: { maxFractionDigits: 2 } }"
-						unit="EUR"/>
-					<ObjectNumber
-						number="{ path:'MeanCustomerValue', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+						number="{ path:'MeanCustomerValue', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: {showMeasure: true, maxFractionDigits: 2 } }"/>
 					<ObjectNumber
 						number="{ path:'MeanOrderCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
 					<ObjectNumber
 						number="{ path:'MeanReturnCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+					<Image src="{path: 'MeanCustomerValue', formatter: '.status' }" width="18%"/>
 				</cells>
 			</ColumnListItem>
 		</items>
