@@ -1,0 +1,69 @@
+{
+	"CategorySegment": [{
+		"SegmentID": "01",
+		"NumberOfCategory": 120
+	}, {
+		"SegmentID": "02",
+		"NumberOfCategory": 420
+	}, {
+		"SegmentID": "03",
+		"NumberOfCategory": 280
+	}, {
+		"SegmentID": "04",
+		"NumberOfCategory": 70
+	}],
+	"CategoryOrderReturn": [{
+		"SegmentID": "01",
+		"Number of Order": 1520,
+		"Number of Return": 800
+	}, {
+		"SegmentID": "02",
+		"Number of Order": 620,
+		"Number of Return": 400
+	}, {
+		"SegmentID": "03",
+		"Number of Order": 320,
+		"Number of Return": 80
+	}, {
+		"SegmentID": "04",
+		"Number of Order": 70,
+		"Number of Return": 40
+	}],
+	"CategorySegmentDetails": [{
+		"SegmentID": "01",
+		"Number of Customer": 25832,
+		"Number of Order": 8366,
+		"Number of Return": 2494,
+		"Profit": "32.93%",
+		"MeanOrderCount": 3.39,
+		"MeanReturnCount": 0.59,
+		"MeanSupplierValue": 1.90
+	}, {
+		"SegmentID": "02",
+		"Number of Customer": 15832,
+		"Number of Order": 29966,
+		"Number of Return": 9494,
+		"Profit": "22.93%",
+		"MeanOrderCount": 1.89,
+		"MeanReturnCount": 0.43,
+		"MeanSupplierValue": 1.90
+	}, {
+		"SegmentID": "03",
+		"Number of Customer": 25832,
+		"Number of Order": 29966,
+		"Number of Return": 22494,
+		"Profit": "12.93%",
+		"MeanOrderCount": 1.89,
+		"MeanReturnCount": 1.59,
+		"MeanSupplierValue": 0.90
+	}, {
+		"SegmentID": "04",
+		"Number of Customer": 832,
+		"Number of Order": 2966,
+		"Number of Return": 1494,
+		"Profit": "19.93%",
+		"MeanOrderCount": 3.9,
+		"MeanReturnCount": 1.69,
+		"MeanSupplierValue": 2.90
+	}]
+}

@@ -65,7 +65,11 @@
 							<mvc:XMLView viewName="Intelligent-Return-Web.Intelligent-Return-Web.view.Supplier"/>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="pcatsegmentation" text="Product Category Segmentation"></IconTabFilter>
+					<IconTabFilter id="pcatsegmentation" text="Product Category Segmentation">
+						<content>
+							<mvc:XMLView viewName="Intelligent-Return-Web.Intelligent-Return-Web.view.ProductCategory"/>
+						</content>
+					</IconTabFilter>
 				</items>
 			</IconTabBar>
 		</Page>

@@ -1,0 +1,100 @@
+<mvc:View id="supplier" controllerName="Intelligent-Return-Web.Intelligent-Return-Web.controller.ProductCategory" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:l="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" displayBlock="true">
+	<l:VerticalLayout id="containerLayout" width="100%">
+		<HBox>
+			<viz:VizFrame width="37rem" id="DueDateGridFrame" selectData="myOnClickHandler" vizType="info/pie" uiConfig="{applicationSet:'fiori'}"
+				vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Product Category Segmentation', visible : true}}">
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/CategorySegment}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="SegmentID" value="{SegmentID}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition value="{NumberOfCategory}" name="NumberOfCategory"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="size" type="Measure" values="NumberOfCategory"/>
+					<viz.feeds:FeedItem uid="color" type="Dimension" values="SegmentID"/>
+				</viz:feeds>
+			</viz:VizFrame>
+			<viz:Popover id="vizPopover"></viz:Popover>
+			<viz:Popover id="idPopOver" showHeader="false"></viz:Popover>
+			<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType='stacked_column'
+				vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Orders/Returns', visible : true}}">
+				<viz:dataset>
+					<viz.data:FlattenedDataset data="{/CategoryOrderReturn}">
+						<viz.data:dimensions>
+							<viz.data:DimensionDefinition name="Segment" value="{SegmentID}"/>
+						</viz.data:dimensions>
+						<viz.data:measures>
+							<viz.data:MeasureDefinition name="Number of Orders" value="{Number of Order}"/>
+							<viz.data:MeasureDefinition name="Number of Returns" value="{Number of Return}"/>
+						</viz.data:measures>
+					</viz.data:FlattenedDataset>
+				</viz:dataset>
+				<viz:feeds>
+					<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number of Orders,Number of Returns"/>
+					<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Segment"/>
+				</viz:feeds>
+			</viz:VizFrame>
+		</HBox>
+		<HBox>
+			<Panel id="panel2" width="auto" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar height="3rem" style="Clear">
+						<Title text="Segmentation Summary: Detailed"/>
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table id="SegmentDetailed" inset="false" items="{ path: '/CategorySegmentDetails', sorter: { path: 'SegmentID' } }">
+						<columns>
+							<Column width="8em">
+								<Text text="Segment ID"/>
+							</Column>
+							<Column width="8em" demandPopin="true">
+								<Text text="Number of Customers"/>
+							</Column>
+							<Column width="8em" demandPopin="true" hAlign="Center">
+								<Text text="Number of Orders"/>
+							</Column>
+							<Column width="8em" hAlign="Center">
+								<Text text="Number of Returns"/>
+							</Column>
+							<Column width="10em" hAlign="Center">
+								<Text text="Profit%"/>
+							</Column>
+							<Column width="9em" hAlign="Center">
+								<Text text="Mean Order Count"/>
+							</Column>
+							<Column width="10em" hAlign="Center">
+								<Text text="Mean Return Count"/>
+							</Column>
+							<Column width="12em" hAlign="Center">
+								<Text text="Category Value Index"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier text="{SegmentID}"/>
+									<Text text="{Number of Customer}"/>
+									<Text text="{Number of Order}"/>
+									<Text text="{Number of Return}"/>
+									<ObjectNumber number="{ parts:[{path:'Profit'}], type: 'sap.ui.model.type.Float', formatOptions: { groupingSeparator: '.' } }"/>
+									<ObjectNumber
+										number="{ path:'MeanOrderCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+									<ObjectNumber
+										number="{ path:'MeanReturnCount', emphasized: 'false', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 } }"/>
+									<Image src="{path: 'MeanSupplierValue', formatter: '.status' }" width="18%"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Panel>
+		</HBox>
+	</l:VerticalLayout>
+</mvc:View>
