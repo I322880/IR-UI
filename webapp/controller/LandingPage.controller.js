@@ -12,7 +12,10 @@ sap.ui.define([
 			oModel.read("/SegmentDetails", null, null, false, function (oData, repsonse) {
 				oJsonModel.setData(oData);
 			});
-
+			var toatlRevenue = new JSONModel({
+				revenue: 1000000
+			});
+			sap.ui.getCore().setModel(toatlRevenue, "Revenue");
 			this.getView().setModel(oModel);
 			var OrderSummary = new JSONModel({
 				OrderSummary: [{
@@ -35,7 +38,9 @@ sap.ui.define([
 			var that = this;
 			var value = that.byId("revenue").getValue();
 			that.byId("textr").setValue(value);
-			that.byId("returncost").setValue((value * 12 * 100 / 100));
+			that.byId("returncost").setValue((value * 2 * 1000 / 100));
+			var toatlRevenue = sap.ui.getCore().getModel("Revenue");
+			toatlRevenue.revenue = value * 1000000;
 		},
 		onClickRadial: function (oEvent) {
 			var that = this;

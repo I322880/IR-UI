@@ -1,7 +1,7 @@
 {
 	"Aggressive": [{
 		"SId": "ST-1000",
-		"Name": "Make Supplier's Account Dormant"
+		"Name": "Suspend Supplier's Account Temporarily"
 	}],
 	"Conservative": [{
 		"SId": "ST-1010",

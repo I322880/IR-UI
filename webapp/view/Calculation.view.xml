@@ -20,7 +20,7 @@
 						items="{ path: '/Conservative', sorter: { path: 'Name'} }">
 						<core:Item key="{SId}" text="{Name}"/>
 					</MultiComboBox>
-					<Button text="Simulate" press="onApply"/>
+					<Button id="simulate" text="Simulate" press="onApply"/>
 				</VBox>
 			</FlexBox>
 			<viz:VizFrame id="oVizFrame" busy="false" busyIndicatorDelay="1000" visible="true" uiConfig="{ 'applicationSet': 'fiori' }"

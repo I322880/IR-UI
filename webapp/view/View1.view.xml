@@ -28,20 +28,20 @@
 								<viz:Popover id="vizPopover"></viz:Popover>
 								<viz:Popover id="idPopOver" showHeader="false"></viz:Popover>
 								<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType='stacked_column'
-									vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Order/Returns', visible : true}}">
+									vizProperties="{plotArea:{dataLabel:{visible: true}}, title: {text : 'Orders/Returns', visible : true}}">
 									<viz:dataset>
 										<viz.data:FlattenedDataset data="{/SegmentDetails}">
 											<viz.data:dimensions>
 												<viz.data:DimensionDefinition name="Segment" value="{SegmentID}"/>
 											</viz.data:dimensions>
 											<viz.data:measures>
-												<viz.data:MeasureDefinition name="Number of Order" value="{Number of Order}"/>
-												<viz.data:MeasureDefinition name="Number of Return" value="{Number of Return}"/>
+												<viz.data:MeasureDefinition name="Number of Orders" value="{Number of Order}"/>
+												<viz.data:MeasureDefinition name="Number of Returns" value="{Number of Return}"/>
 											</viz.data:measures>
 										</viz.data:FlattenedDataset>
 									</viz:dataset>
 									<viz:feeds>
-										<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number of Order,Number of Return"/>
+										<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number of Orders,Number of Returns"/>
 										<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Segment"/>
 									</viz:feeds>
 								</viz:VizFrame>

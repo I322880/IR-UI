@@ -97,7 +97,7 @@ sap.ui.define([
 						items: [new sap.m.HBox({
 								items: [
 									new sap.m.Label({
-										text: data.data.val[1].name,
+										text: "Number Of Customers",
 										design: "Bold"
 									}).addStyleClass("sapUiTinyMargin"),
 									new sap.m.Text({

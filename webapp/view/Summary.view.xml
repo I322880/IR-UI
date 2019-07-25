@@ -18,13 +18,13 @@
 				<Text text="Customer Value"/>
 			</Column>
 			<Column width="12em" hAlign="Center">
-				<Text text="MeanCustomerValue"/>
+				<Text text="Mean Customer Value"/>
 			</Column>
 			<Column width="9em" hAlign="Center">
-				<Text text="MeanOrderCount"/>
+				<Text text="Mean Order Count"/>
 			</Column>
 			<Column width="10em" hAlign="Center">
-				<Text text="MeanReturnCount"/>
+				<Text text="Mean Return Count"/>
 			</Column>
 			<Column width="12em" hAlign="Center">
 				<Text text="Customer Value Index"/>

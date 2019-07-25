@@ -4,30 +4,33 @@
 		"Name": "Stop Free Shipping"
 	}, {
 		"SId": "ST-1001",
-		"Name": "Charge 50% of Shipping Cost"
+		"Name": "Apply 50% Handling Charge"
 	}, {
 		"SId": "ST-1004",
-		"Name": "Make Customer Account Dormant"
+		"Name": "Suspend Customer Account Temporarily"
 	}],
 	"Conservative": [{
-		"SId": "ST-1010",
-		"Name": "Customer Ships Returned Items"
-	}, {
 		"SId": "ST-1011",
 		"Name": "Offer Exchange Instead of Refund"
 	}, {
 		"SId": "ST-1012",
 		"Name": "Provide Credit Points Instead of Cash Return"
+	}, {
+		"SId": "ST-1013",
+		"Name": "Apply 10% Handling Charge"
 	}],
 	"Moderate": [{
 		"SId": "ST-1110",
 		"Name": "Cap Discount"
 	}, {
 		"SId": "ST-1111",
-		"Name": "Charge Partial Shipping"
+		"Name": "Self Shipping"
 	}, {
 		"SId": "ST-1112",
-		"Name": "Customer to Return In-Store"
+		"Name": "In-Store Return"
+	}, {
+		"SId": "ST-1113",
+		"Name": "Apply 20% Handling Charge"
 	}]
 
 }

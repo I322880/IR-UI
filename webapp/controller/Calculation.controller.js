@@ -13,6 +13,7 @@ sap.ui.define([
 		},
 		onInit: function () {
 			var oSelect = sap.ui.getCore().getModel("select").segmentation;
+			var toatlRevenue = sap.ui.getCore().getModel("Revenue");
 			var oMultibox;
 			if (oSelect === "cus") {
 				oMultibox = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("Intelligent-Return-Web.Intelligent-Return-Web.model",
@@ -25,19 +26,21 @@ sap.ui.define([
 			var okpiModel = new JSONModel({
 				book: [{
 					"Item Category": "Total Revenue",
-					"Actual": 173799.31,
+					"Actual": toatlRevenue.revenue,
 					"Post Strategy": 0
 
-				}, {
-					"Item Category": "Net Profit",
-					"Actual": 26994.34,
-					"Post Strategy": 0
 				}, {
 
 					"Item Category": "Logistic Cost",
-					"Actual": 81093.4,
+					"Actual": ( toatlRevenue.revenue * 12 /100 ),
 					"Post Strategy": 0
-				}, {
+				},
+				{
+					"Item Category": "Net Profit",
+					"Actual": 26994.34,
+					"Post Strategy": 0
+				}
+				, {
 					"Item Category": "Profit%",
 					"Actual": 15.45,
 					"Post Strategy": 0.0
@@ -47,23 +50,26 @@ sap.ui.define([
 		},
 		onApply: function (oevent) {
 			var kpiModel = this.byId("oVizFrame").getModel("kpi");
-			var aggr, mod, con;
+			var aggr, mod, con, log;
 			if (this.byId("RB1").getSelected() === true) {
 				aggr = 1.35;
+				log = 0.75;
 				kpiModel.getData().book[0]["Post Strategy"] = kpiModel.getData().book[0]["Actual"] * aggr;
-				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * aggr;
+				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * log;
 				kpiModel.getData().book[2]["Post Strategy"] = kpiModel.getData().book[2]["Actual"] * aggr;
 				kpiModel.getData().book[3]["Post Strategy"] = kpiModel.getData().book[3]["Actual"] * aggr;
 			} else if (this.byId("RB2").getSelected() === true) {
 				mod = 1.20;
+				log = 0.85;
 				kpiModel.getData().book[0]["Post Strategy"] = kpiModel.getData().book[0]["Actual"] * mod;
-				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * mod;
+				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * log;
 				kpiModel.getData().book[2]["Post Strategy"] = kpiModel.getData().book[2]["Actual"] * mod;
 				kpiModel.getData().book[3]["Post Strategy"] = kpiModel.getData().book[3]["Actual"] * mod;
 			} else {
 				con = 1.10;
+				log = 0.90;
 				kpiModel.getData().book[0]["Post Strategy"] = kpiModel.getData().book[0]["Actual"] * con;
-				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * con;
+				kpiModel.getData().book[1]["Post Strategy"] = kpiModel.getData().book[1]["Actual"] * log;
 				kpiModel.getData().book[2]["Post Strategy"] = kpiModel.getData().book[2]["Actual"] * con;
 				kpiModel.getData().book[3]["Post Strategy"] = kpiModel.getData().book[3]["Actual"] * con;
 			}
@@ -119,9 +125,11 @@ sap.ui.define([
 			this.byId("mb1").clearSelection();
 			this.byId("mb2").clearSelection();
 			this.byId("mb3").clearSelection();
+			this.byId("simulate").setEnabled(false);
 		},
 		onNavBack: function (event) {
 			this._initializeView();
+			this._initializeChart();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("segmentation");
 		},
@@ -155,10 +163,13 @@ sap.ui.define([
 		onChoose: function (oEvent) {
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			MessageBox.confirm(
-				"Apply Return Strategy? Data will be persisted", {
+				"Apply Return Strategy?", {
 					styleClass: bCompact ? "sapUiSizeCompact" : ""
 				}
 			);
+		},
+		handleSelectionFinish: function(oControlEvent){
+			this.byId("simulate").setEnabled(true);
 		}
 	});
 

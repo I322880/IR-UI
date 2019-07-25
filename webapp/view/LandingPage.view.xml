@@ -26,14 +26,14 @@
 											max="50.00" class="sapUiMediumMarginBottom"/>
 									</m:TileContent>
 									<m:TileContent unit="EUR">
-										<m:NumericContent scale="M" id="textr" value="1.00" valueColor="Good"/>
+										<m:NumericContent  scale="M" id="textr" value="1.00" valueColor="Good"/>
 									</m:TileContent>
 								</m:tileContent>
 							</m:GenericTile>
 							<m:GenericTile header="Revenue Lost due to Returns" subheader="" frameType="TwoByOne" press="press" class="sapUiTinyMargin">
 								<m:tileContent>
 									<m:TileContent footer="" unit="EUR">
-										<m:NumericContent id="returncost" scale="K" value="1.96" valueColor="Error" indicator="Down"/>
+										<m:NumericContent id="returncost" scale="K" value="20" valueColor="Error" indicator="Down"/>
 									</m:TileContent>
 								</m:tileContent>
 							</m:GenericTile>
